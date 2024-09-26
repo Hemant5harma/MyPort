@@ -1,4 +1,4 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -24,4 +24,13 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+} */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Custom Global Styles */
+body {
+  @apply bg-gray-900 text-white; /* Tailwind utilities */
 }
