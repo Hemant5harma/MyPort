@@ -2,9 +2,7 @@
 
 import { motion, useAnimation } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import Image from 'next/image';
 
-import memoji from "../../Images/memoji-computer.png"
 
 const CursorEffect = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })

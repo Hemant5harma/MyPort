@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 import { StaticImageData } from 'next/image';
-
 import darkSaasLandingPage from "../../public/images/dark-saas-landing-page.png";
 import lightSaasLandingPage from "../../public/images/light-saas-landing-page.png"
 import aiStartupLandingPage from "../../public/images/ai-startup-landing-page.png";
@@ -79,11 +78,10 @@ interface ProjectCardProps {
   link: string;
   company: string;
   year: string;
-  projectIndex: number;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, image, link, company, year, projectIndex }) => {
-  const topValue = `calc(64px + ${projectIndex * 40}px)`; // Dynamic sticky top value
+const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, image, link, company, year }) => {
+
 
   return (
     <Card className="w-[70vw] h-[70vh] p-8 flex flex-col md:flex-row gap-8" >
@@ -137,7 +135,6 @@ export default function FeaturedProjects() {
                 link={project.link}
                 company={project.company}
                 year={project.year}
-                projectIndex={index} // Pass index to calculate sticky top
               />
             </div>
           ))}
