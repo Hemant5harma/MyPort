@@ -1,9 +1,5 @@
 import React from 'react';
 import Image from 'next/image';
-import { StaticImageData } from 'next/image';
-import darkSaasLandingPage from "../../public/images/dark-saas-landing-page.png";
-import lightSaasLandingPage from "../../public/images/light-saas-landing-page.png"
-import aiStartupLandingPage from "../../public/images/ai-startup-landing-page.png";
 import Card from '../components/Card';
 
 
@@ -17,33 +13,33 @@ interface Project {
   title: string;
   results: Result[];
   link: string;
-  image: StaticImageData;
+  image: string;
 }
 
 const projects: Project[] = [
   {
-    company: "Acme Corp",
-    year: "2022",
-    title: "Dark Saas Landing Page",
+    company: "PIET",
+    year: "2024",
+    title: "Blockchain-Based Smart Automation System",
     results: [
-      { title: "Enhanced user experience by 40%" },
-      { title: "Improved site speed by 50%" },
-      { title: "Increased mobile traffic by 35%" },
+      { title: "Full-stack dev with UI and backend" },
+      { title: "Built secure microservices with Node.js" },
+      { title: "Implemented CI/CD and monitoring" },
     ],
     link: "https://youtu.be/4k7IdSLxh6w",
-    image: darkSaasLandingPage,
+    image: "/images/ai-startup-landing-page.png",
   },
   {
-    company: "Innovative Co",
-    year: "2021",
-    title: "Light Saas Landing Page",
+    company: "Freelance Project",
+    year: "2023",
+    title: "MedShare",
     results: [
-      { title: "Boosted sales by 20%" },
-      { title: "Expanded customer reach by 35%" },
-      { title: "Increased brand awareness by 15%" },
+      { title: "Online shop for medicine and lab tests" },
+      { title: "Full-stack MERN website with React, Express, MongoDB, Axios" },
+      { title: "Frontend using HTML, CSS, Material UI, and Tailwind CSS" },
     ],
-    link: "https://youtu.be/7hi5zwO75yc",
-    image: lightSaasLandingPage,
+    link: "https://medshare.vercel.app/",
+    image: "/images/light-saas-landing-page.png",
   },
   {
     company: "Quantum Dynamics",
@@ -55,7 +51,7 @@ const projects: Project[] = [
       { title: "Increased mobile traffic by 35%" },
     ],
     link: "https://youtu.be/Z7I5uSRHMHg",
-    image: aiStartupLandingPage,
+    image: "/images/light-saas-landing-page.png",
   },
   {
     company: "Quantum Dynamics",
@@ -67,14 +63,14 @@ const projects: Project[] = [
       { title: "Increased mobile traffic by 35%" },
     ],
     link: "https://youtu.be/Z7I5uSRHMHg",
-    image: aiStartupLandingPage,
+    image: "/images/light-saas-landing-page.png",
   },
 ];
 
 interface ProjectCardProps {
   title: string;
   description: string[];
-  image: StaticImageData;
+  image: string;
   link: string;
   company: string;
   year: string;
@@ -84,7 +80,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, image, li
 
 
   return (
-    <Card className="w-[70vw] h-[70vh] p-8 flex flex-col md:flex-row gap-8" >
+    <Card className="w-[70vw] h-[70vh] p-8 flex flex-col md:flex-row gap-8 ">
       <div className="w-full md:w-1/2 flex flex-col justify-between">
         <div>
           <p className="text-green-400 text-sm mb-2">{company} • {year}</p>
@@ -127,7 +123,7 @@ export default function FeaturedProjects() {
         <h2 className="text-4xl font-bold mb-12 text-center text-white">Featured Projects</h2>
         <div className="relative">
           {projects.map((project, index) => (
-            <div key={index} className="h-screen flex justify-center" style={{ position: 'sticky', top: `calc(64px + ${index * 80}px)` }}>
+            <div key={index} className="h-screen flex justify-center" style={{ position: 'sticky', top: `calc(64px + ${index * 50}px)` }}>
               <ProjectCard
                 title={project.title}
                 description={project.results.map(res => res.title)}

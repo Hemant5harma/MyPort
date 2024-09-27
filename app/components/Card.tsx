@@ -12,7 +12,7 @@ const Card: React.FC<PropsWithChildren<CardProps>> = ({ children, className, sty
     <div
       style={style}
       className={twMerge(
-        'bg-gray-800 rounded-3xl relative z-0 overflow-hidden',
+        'bg-gray-800 rounded-3xl relative z-0 overflow-hidden border-solid	border-slate-300 ',
         className
       )}
     >
