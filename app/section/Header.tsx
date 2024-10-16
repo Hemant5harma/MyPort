@@ -9,6 +9,7 @@ const Header = () => {
                     <li><Link href="#home" className="text-gray-300 hover:text-white transition-colors">Home</Link></li>
                     <li><Link href="#projects" className="text-gray-300 hover:text-white transition-colors">Projects</Link></li>
                     <li><Link href="#about" className="text-gray-300 hover:text-white transition-colors">About</Link></li>
+                    <li><Link href="#resume" className="text-gray-300 hover:text-white transition-colors">Resume</Link></li>
                     <li><Link href="#contact" className="bg-white text-gray-900 px-4 py-2 rounded-full hover:bg-opacity-90 transition-colors">Contact</Link></li>
                 </ul>
             </nav>

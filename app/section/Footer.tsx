@@ -6,9 +6,8 @@ export default function Footer() {
           <p>&copy; 2024 Your Name. All rights reserved.</p>
           <div className="flex justify-center space-x-4 mt-4">
             <a href="#" className="text-gray-400 hover:text-white">Twitter</a>
-            <a href="#" className="text-gray-400 hover:text-white">LinkedIn</a>
-            <a href="#" className="text-gray-400 hover:text-white">GitHub</a>
-            <a href="#" className="text-gray-400 hover:text-white">Dribbble</a>
+            <a href="https://www.linkedin.com/in/hemant5harma" className="text-gray-400 hover:text-white"  target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href='https://www.github.com/hemant5harma' className="text-gray-400 hover:text-white"  target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
         </div>
       </footer>

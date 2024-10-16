@@ -28,10 +28,10 @@ export default function AboutMe() {
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.3 }}
           >
-            <h3 className="text-2xl font-semibold mb-6 text-white">My Reads</h3>
+            <h3 className="text-2xl font-semibold mb-6 text-white">Certification</h3>
             <div className="flex items-center space-x-4">
-              <img src="/images/book-cover.png?height=144&width=96" alt="Book Cover" className="w-24 h-36 object-cover rounded-lg shadow-md" />
-              <p className="text-lg text-gray-300">Atomic Habits by James Clear</p>
+              <img src="/images/red-hat.png" alt="Book Cover" className="w-36 h-30 object-cover rounded-lg shadow-md" />
+              <p className="text-lg text-gray-300">Red Hat Certified System Administrator (RHCSA)</p>
             </div>
           </motion.div>
           <motion.div
