@@ -34,3 +34,13 @@ body {
 body {
   @apply bg-gray-900 text-white; /* Tailwind utilities */
 }
+
+@keyframes blink {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 1s infinite;
+}

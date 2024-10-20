@@ -1,10 +1,39 @@
-"use client";
+'use client';
 
-import React, { useEffect, useState } from 'react';
-import { motion, useAnimation, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence, useAnimation } from 'framer-motion';
 import ResumeSection from './Resume';
 
-// Custom hook for SSR-compatible media query
+const TypingHeader: React.FC = () => {
+  const [text, setText] = useState('');
+  const fullText = 'Welcome to My Portfolio';
+
+  useEffect(() => {
+    let i = 0;
+    const typingEffect = setInterval(() => {
+      if (i < fullText.length) {
+        setText((prev) => prev + fullText.charAt(i));
+        i++;
+      } else {
+        clearInterval(typingEffect);
+      }
+    }, 100);
+
+    return () => clearInterval(typingEffect);
+  }, []);
+
+  return (
+    <header className="w-full py-1 px-4 mt-6"> {/* Adjusted padding and margin */}
+      <div className="h-10 bg-transparent rounded-lg flex items-center justify-center"> {/* Adjusted height and background color */}
+        <h1 className="text-lg font-semibold text-white"> {/* Reduced text size */}
+          {text}
+          <span className="animate-blink">|</span>
+        </h1>
+      </div>
+    </header>
+  );
+};
+
 const useSSRMediaQuery = (query: string) => {
   const [matches, setMatches] = useState(false);
 
@@ -57,7 +86,7 @@ const CursorEffect = () => {
       className="pointer-events-none fixed inset-0 z-30 transition-opacity"
       animate={animation}
     >
-      <div className="absolute left-0 top-0 h-[800px] w-[800px] rounded-full bg-gradient-to-r from-blue-400/20 to-purple-500/20 blur-3xl" />
+      <div className="absolute left-0 top-0 h-[800px] w-[800px] rounded-full bg-gradient-to-r from-blue-400/20 to-blue-500/20 blur-3xl" />
     </motion.div>
   );
 };
@@ -85,74 +114,77 @@ const ResumeComponent = ({ onClose }: { onClose: () => void }) => {
   );
 };
 
-export default function EnhancedCursorResponsiveHero() {
+export default function HeroWithTypingHeader() {
   const [showResume, setShowResume] = useState(false);
   const isMobile = useSSRMediaQuery('(max-width: 768px)');
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900 text-white">
-      <CursorEffect />
-      <div className="relative z-40 text-center px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 md:pt-32">
-        <motion.img
-          src='/images/memoji-computer.png'
-          alt="Hemant Sharma"
-          className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-4 rounded-full border-2 border-white"
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-        />
-        <motion.div
-          className="inline-flex items-center bg-gray-800 bg-opacity-50 backdrop-blur-sm rounded-full px-3 py-1 sm:px-4 sm:py-2 mb-4 sm:mb-6"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-        >
-          <span className="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
-          <span className="text-xs sm:text-sm">Available for Interviews & Freelance Projects</span>
-        </motion.div>
-        <motion.h1
-          className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 max-w-3xl mx-auto"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        >
-          I Build Scalable Systems and Blockchain Solutions
-        </motion.h1>
-        <motion.p
-          className="text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 max-w-xl sm:max-w-2xl mx-auto text-gray-300"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          As a DevOps Engineer with expertise in web development, blockchain, and cloud computing, I focus on delivering scalable and secure solutions to optimize operational efficiency. Let&apos;s collaborate on building impactful projects.
-        </motion.p>
-        <motion.div
-          className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        >
-          <motion.a
-            href="#portfolio"
-            className="bg-white text-gray-900 px-6 py-3 rounded-full hover:bg-opacity-90 transition-colors w-full sm:w-auto"
-            whileHover={isMobile ? {} : { scale: 1.05 }}
-            whileTap={isMobile ? {} : { scale: 0.95 }}
+    <div className="min-h-screen bg-gray-900 text-white flex flex-col">
+      <TypingHeader />
+      <section className="flex-grow flex items-center justify-center overflow-hidden relative">
+        <CursorEffect />
+        <div className="relative z-40 text-center px-4 sm:px-6 lg:px-8">
+          <motion.img
+            src='/images/memoji-computer.png'
+            alt="Hemant Sharma"
+            className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-4 rounded-full border-2 border-white"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+          />
+          <motion.div
+            className="inline-flex items-center bg-gray-800 bg-opacity-50 backdrop-blur-sm rounded-full px-3 py-1 sm:px-4 sm:py-2 mb-4 sm:mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
           >
-            Explore My Work ↓
-          </motion.a>
-          <motion.button
-            className="bg-transparent border-2 border-white text-white px-6 py-3 rounded-full hover:bg-white hover:text-gray-900 transition-colors w-full sm:w-auto"
-            whileHover={isMobile ? {} : { scale: 1.05 }}
-            whileTap={isMobile ? {} : { scale: 0.95 }}
-            onClick={() => setShowResume(true)}
+            <span className="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
+            <span className="text-xs sm:text-sm">Available for Freelance Projects</span>
+          </motion.div>
+          <motion.h1
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
           >
-            View Resume
-          </motion.button>
-        </motion.div>
-      </div>
-      <AnimatePresence>
-        {showResume && <ResumeComponent onClose={() => setShowResume(false)} />}
-      </AnimatePresence>
-    </section>
+            I Build Scalable Systems and Blockchain Solutions
+          </motion.h1>
+          <motion.p
+            className="text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 max-w-xl sm:max-w-2xl mx-auto text-gray-300"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            As a DevOps Engineer with expertise in web development, blockchain, and cloud computing, I focus on delivering scalable and secure solutions to optimize operational efficiency. Let&apos;s collaborate on building impactful projects.
+          </motion.p>
+          <motion.div
+            className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
+            <motion.a
+              href="#portfolio"
+              className="bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600 transition-colors w-full sm:w-auto"
+              whileHover={isMobile ? {} : { scale: 1.05 }}
+              whileTap={isMobile ? {} : { scale: 0.95 }}
+            >
+              Explore My Work ↓
+            </motion.a>
+            <motion.button
+              className="bg-transparent border-2 border-blue-500 text-blue-500 px-6 py-3 rounded-full hover:bg-blue-500 hover:text-white transition-colors w-full sm:w-auto"
+              whileHover={isMobile ? {} : { scale: 1.05 }}
+              whileTap={isMobile ? {} : { scale: 0.95 }}
+              onClick={() => setShowResume(true)}
+            >
+              View Resume
+            </motion.button>
+          </motion.div>
+        </div>
+        <AnimatePresence>
+          {showResume && <ResumeComponent onClose={() => setShowResume(false)} />}
+        </AnimatePresence>
+      </section>
+    </div>
   );
 }
