@@ -5,34 +5,45 @@ import { motion, AnimatePresence, useAnimation } from 'framer-motion';
 import ResumeSection from './Resume';
 
 const TypingHeader: React.FC = () => {
-  const [text, setText] = useState('');
-  const fullText = 'Welcome to My Portfolio';
+  const [text, setText] = useState('')
+  const fullText = 'Hare Krishna'
 
   useEffect(() => {
-    let i = 0;
-    const typingEffect = setInterval(() => {
-      if (i < fullText.length) {
-        setText((prev) => prev + fullText.charAt(i));
-        i++;
+    let currentIndex = 0
+    const typingInterval = setInterval(() => {
+      if (currentIndex < fullText.length) {
+        setText(fullText.slice(0, currentIndex + 1))
+        currentIndex++
       } else {
-        clearInterval(typingEffect);
+        clearInterval(typingInterval)
       }
-    }, 100);
+    }, 100)
 
-    return () => clearInterval(typingEffect);
-  }, []);
+    return () => clearInterval(typingInterval)
+  }, [])
 
   return (
-    <header className="w-full py-1 px-4 mt-6"> {/* Adjusted padding and margin */}
-      <div className="h-10 bg-transparent rounded-lg flex items-center justify-center"> {/* Adjusted height and background color */}
-        <h1 className="text-lg font-semibold text-white"> {/* Reduced text size */}
-          {text}
-          <span className="animate-blink">|</span>
-        </h1>
+    <header className="w-full py-2 px-4 mt-2 sm:mt-4 md:mt-6">
+      <div className="max-w-7xl mx-auto">
+        <motion.div 
+          className=" bg-transparent backdrop-filter backdrop-blur-sm rounded-lg flex items-center justify-center h-12 sm:h-14 md:h-16"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <h1 className="text-lg font-semibold text-white tracking-wide">
+            {text}
+            <motion.span
+              className="inline-block w-0.5 h-4 bg-white ml-1"
+              animate={{ opacity: [1, 0] }}
+              transition={{ duration: 0.7, repeat: Infinity, repeatType: 'reverse' }}
+            />
+          </h1>
+        </motion.div>
       </div>
     </header>
-  );
-};
+  )
+}
 
 const useSSRMediaQuery = (query: string) => {
   const [matches, setMatches] = useState(false);

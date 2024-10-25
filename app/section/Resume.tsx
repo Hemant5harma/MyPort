@@ -74,11 +74,9 @@ const ResumeSection: React.FC = () => {
             <h3 className="text-3xl font-bold text-white mb-4">Hemant Sharma</h3>
             <p className="text-xl text-green-400 mb-6">DevOps Engineer</p>
             <div className="flex flex-wrap gap-4 mb-8">
-              <p className="text-gray-300"><span className="text-green-400 mr-2">Email:</span> hemantsharmahare@gmail.com</p>
-              <p className="text-gray-300"><span className="text-green-400 mr-2">Phone:</span> +91-8952048302</p>
-              <p className="text-gray-300"><span className="text-green-400 mr-2">Location:</span> Jaipur, India</p>
               <p className="text-gray-300"><span className="text-green-400 mr-2">Website:</span> hemant5harma.tech</p>
               <p className="text-gray-300"><span className="text-green-400 mr-2">LinkedIn:</span> linkedin.com/in/hemant5harma</p>
+              <p className="text-gray-300"><span className="text-green-400 mr-2">Location:</span> Jaipur, India</p>
             </div>
             <p className="text-gray-300 mb-8">
               DevOps Engineer with a strong background in web development, blockchain, and cloud computing. 

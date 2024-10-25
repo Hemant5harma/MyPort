@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head>
-        <title>Hemant Sharma </title>
+        <title>Hemant Sharma </title> 
         <meta 
           name="description" 
           content="I specialize in developing full-stack applications with blockchain integration, combining modern web technologies, DevOps practices, and Web3 development to build secure, scalable, and decentralized solutions. Based in Jaipur, Rajasthan."

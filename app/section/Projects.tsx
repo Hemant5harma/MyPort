@@ -22,12 +22,12 @@ const projects: Project[] = [
     year: "2024",
     title: "Blockchain-Based Smart Automation System",
     results: [
-      { title: "Full-stack dev with UI and backend" },
+      { title: "Full-stack dev with UI and backend (Web 3)" },
       { title: "Built secure microservices with Node.js" },
       { title: "Implemented CI/CD and monitoring" },
     ],
-    link: "https://youtu.be/4k7IdSLxh6w",
-    image: "/images/ai-startup-landing-page.png",
+    link: "https://bas-website.vercel.app/",
+    image: "/images/bas.png",
   },
   {
     company: "Freelance Project",
@@ -39,31 +39,7 @@ const projects: Project[] = [
       { title: "Frontend using HTML, CSS, Material UI, and Tailwind CSS" },
     ],
     link: "https://medshare.vercel.app/",
-    image: "/images/light-saas-landing-page.png",
-  },
-  {
-    company: "Quantum Dynamics",
-    year: "2023",
-    title: "AI Startup Landing Page",
-    results: [
-      { title: "Enhanced user experience by 40%" },
-      { title: "Improved site speed by 50%" },
-      { title: "Increased mobile traffic by 35%" },
-    ],
-    link: "https://youtu.be/Z7I5uSRHMHg",
-    image: "/images/light-saas-landing-page.png",
-  },
-  {
-    company: "Quantum Dynamics",
-    year: "2023",
-    title: "AI Startup Landing Page",
-    results: [
-      { title: "Enhanced user experience by 40%" },
-      { title: "Improved site speed by 50%" },
-      { title: "Increased mobile traffic by 35%" },
-    ],
-    link: "https://youtu.be/Z7I5uSRHMHg",
-    image: "/images/light-saas-landing-page.png",
+    image: "/images/medshare.png",
   },
 ];
 
@@ -98,6 +74,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, image, li
         </div>
         <a
           href={link}
+          target='_blank'
           className="inline-block bg-white text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition duration-300 ease-in-out"
         >
           Visit Live Site
