@@ -1,6 +1,7 @@
 import Head from "next/head";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Metadata } from "next";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -13,6 +14,22 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
+export const metadata: Metadata = {
+  metadataBase: new URL("https://hemant5harma.tech"),
+  title: "Hemant Sharma",
+  description: "I specialize in developing full-stack applications with blockchain integration, combining modern web technologies and DevOps practices",
+  keywords: ["hemant5harma", "hemant sharma", "web3 devloper", "devops engineer"],
+  icons: {
+    icon: { url: '/favicon.ico', sizes: '32x32' },
+    },
+  openGraph: {
+    description: "I specialize in developing full-stack applications with blockchain integration, combining modern web technologies and DevOps practices",
+    url: "https://hemant5harma.tech",
+    siteName: "Hemant Sharma",
+   
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -20,27 +37,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-        <title>Hemant Sharma </title> 
-        <meta 
-          name="description" 
-          content="I specialize in developing full-stack applications with blockchain integration, combining modern web technologies, DevOps practices, and Web3 development to build secure, scalable, and decentralized solutions. Based in Jaipur, Rajasthan."
-        />
-        <meta 
-          name="keywords" 
-          content="web development, Next.js, React, frontend development, devops , aws , docker, blockchain"
-        />
-        <meta property="og:title" content="Hemant Sharma - DevOps Engineer" />
-        <meta 
-          property="og:description" 
-          content="I specialize in developing full-stack applications with blockchain integration, combining modern web technologies, DevOps practices, and Web3 development to build secure, scalable, and decentralized solutions."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://hemant5harma.tech" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="robots" content="index, follow" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
